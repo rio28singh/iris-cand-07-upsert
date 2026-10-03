@@ -1,0 +1,101 @@
+{
+  "batch_id": "b1",
+  "changes": [
+    {
+      "changed_columns": [
+        "land_use",
+        "area_m2",
+        "geom"
+      ],
+      "country_code": "DE",
+      "parcel_ref": "P-100",
+      "type": "INSERTED"
+    },
+    {
+      "changed_columns": [
+        "land_use",
+        "area_m2",
+        "geom"
+      ],
+      "country_code": "DE",
+      "parcel_ref": "P-200",
+      "type": "INSERTED"
+    },
+    {
+      "changed_columns": [
+        "land_use",
+        "area_m2",
+        "geom"
+      ],
+      "country_code": "FR",
+      "parcel_ref": "P-100",
+      "type": "INSERTED"
+    }
+  ],
+  "counts": {
+    "inserted": 3,
+    "invariant_holds": true,
+    "rejected": 5,
+    "staged": 8,
+    "unchanged": 0,
+    "updated": 0
+  },
+  "finished_at": "2026-10-03T20:06:56.993437+00:00",
+  "input": {
+    "file": "batch1_initial.csv",
+    "sha256": "c5cab044e01382402c23d95f384e58588f4f7667919f8bdd193f3d9bbfb128e7",
+    "source_rank": 0
+  },
+  "manifest_version": 1,
+  "rejected_by_reason": {
+    "FUTURE_SOURCE_DATE": 1,
+    "INVALID_GEOMETRY": 1,
+    "MISSING_GEOMETRY": 1,
+    "UNKNOWN_COUNTRY": 1,
+    "UNSUPPORTED_CRS": 1
+  },
+  "rejects": [
+    {
+      "country_code": "DE",
+      "parcel_ref": "P-300",
+      "reason": "MISSING_GEOMETRY",
+      "staging_id": 4
+    },
+    {
+      "country_code": "DE",
+      "parcel_ref": "P-400",
+      "reason": "INVALID_GEOMETRY",
+      "staging_id": 5
+    },
+    {
+      "country_code": "DE",
+      "parcel_ref": "P-500",
+      "reason": "UNSUPPORTED_CRS",
+      "staging_id": 6
+    },
+    {
+      "country_code": "US",
+      "parcel_ref": "P-600",
+      "reason": "UNKNOWN_COUNTRY",
+      "staging_id": 7
+    },
+    {
+      "country_code": "NL",
+      "parcel_ref": "P-700",
+      "reason": "FUTURE_SOURCE_DATE",
+      "staging_id": 8
+    }
+  ],
+  "rules": {
+    "change_detection": "sha256(land_use, area_m2, normalised EWKB geom)",
+    "freshness": "update only if (source_date, source_rank) is strictly greater than core",
+    "geometry": "geom MultiPolygon EPSG:4326, must be valid; never repaired",
+    "natural_key": [
+      "country_code",
+      "parcel_ref"
+    ]
+  },
+  "run_id": 1,
+  "started_at": "2026-10-03T20:06:56.339636+00:00",
+  "tool_version": "0.1.0"
+}

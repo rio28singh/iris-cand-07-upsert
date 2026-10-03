@@ -1,0 +1,12 @@
+# One-command PostgreSQL 16 + PostGIS 3.4 for local use (databases: iris, iris_test).
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: iris-db
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: iris
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql:ro

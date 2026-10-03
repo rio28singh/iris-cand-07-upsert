@@ -1,0 +1,22 @@
+[project]
+name = "iris-promotion"
+version = "0.1.0"
+description = "IRIS-CAND-07: safe staging-to-core upsert promotion for parcels"
+requires-python = ">=3.12"
+dependencies = ["psycopg[binary]>=3.2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+iris-promote = "iris_promotion.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

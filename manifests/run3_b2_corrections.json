@@ -1,0 +1,64 @@
+{
+  "batch_id": "b2",
+  "changes": [
+    {
+      "changed_columns": [
+        "land_use",
+        "area_m2",
+        "geom"
+      ],
+      "country_code": "DE",
+      "parcel_ref": "P-100",
+      "type": "UPDATED"
+    },
+    {
+      "changed_columns": [
+        "land_use",
+        "area_m2",
+        "geom"
+      ],
+      "country_code": "DE",
+      "parcel_ref": "P-300",
+      "type": "INSERTED"
+    },
+    {
+      "changed_columns": [
+        "land_use",
+        "area_m2",
+        "geom"
+      ],
+      "country_code": "NL",
+      "parcel_ref": "P-100",
+      "type": "INSERTED"
+    }
+  ],
+  "counts": {
+    "inserted": 2,
+    "invariant_holds": true,
+    "rejected": 0,
+    "staged": 5,
+    "unchanged": 2,
+    "updated": 1
+  },
+  "finished_at": "2026-10-03T20:06:57.297851+00:00",
+  "input": {
+    "file": "batch2_corrections.csv",
+    "sha256": "7a1e53e3c04b2365749b5b17f18872e1f47716fdd47f1b57bc98f4d47654751e",
+    "source_rank": 0
+  },
+  "manifest_version": 1,
+  "rejected_by_reason": {},
+  "rejects": [],
+  "rules": {
+    "change_detection": "sha256(land_use, area_m2, normalised EWKB geom)",
+    "freshness": "update only if (source_date, source_rank) is strictly greater than core",
+    "geometry": "geom MultiPolygon EPSG:4326, must be valid; never repaired",
+    "natural_key": [
+      "country_code",
+      "parcel_ref"
+    ]
+  },
+  "run_id": 3,
+  "started_at": "2026-10-03T20:06:57.267232+00:00",
+  "tool_version": "0.1.0"
+}

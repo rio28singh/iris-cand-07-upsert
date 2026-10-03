@@ -1,0 +1,42 @@
+{
+  "batch_id": "b4",
+  "changes": [
+    {
+      "changed_columns": [
+        "land_use"
+      ],
+      "country_code": "DE",
+      "parcel_ref": "P-200",
+      "type": "UPDATED"
+    }
+  ],
+  "counts": {
+    "inserted": 0,
+    "invariant_holds": true,
+    "rejected": 0,
+    "staged": 1,
+    "unchanged": 0,
+    "updated": 1
+  },
+  "finished_at": "2026-10-03T20:06:57.685323+00:00",
+  "input": {
+    "file": "batch4_authoritative.csv",
+    "sha256": "c2e38fc96d5bcf092c28c9957f5b887cb699458a0632c8d873af92087762b8aa",
+    "source_rank": 10
+  },
+  "manifest_version": 1,
+  "rejected_by_reason": {},
+  "rejects": [],
+  "rules": {
+    "change_detection": "sha256(land_use, area_m2, normalised EWKB geom)",
+    "freshness": "update only if (source_date, source_rank) is strictly greater than core",
+    "geometry": "geom MultiPolygon EPSG:4326, must be valid; never repaired",
+    "natural_key": [
+      "country_code",
+      "parcel_ref"
+    ]
+  },
+  "run_id": 6,
+  "started_at": "2026-10-03T20:06:57.651710+00:00",
+  "tool_version": "0.1.0"
+}

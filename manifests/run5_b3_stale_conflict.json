@@ -1,0 +1,49 @@
+{
+  "batch_id": "b3",
+  "changes": [],
+  "counts": {
+    "inserted": 0,
+    "invariant_holds": true,
+    "rejected": 2,
+    "staged": 2,
+    "unchanged": 0,
+    "updated": 0
+  },
+  "finished_at": "2026-10-03T20:06:57.539302+00:00",
+  "input": {
+    "file": "batch3_stale_and_conflict.csv",
+    "sha256": "a5b9520d015ec5f577edd3d3366f75db4a69ce89ace82d375800fb19543d4ac0",
+    "source_rank": 0
+  },
+  "manifest_version": 1,
+  "rejected_by_reason": {
+    "CONFLICT_SAME_FRESHNESS": 1,
+    "STALE_SOURCE": 1
+  },
+  "rejects": [
+    {
+      "country_code": "DE",
+      "parcel_ref": "P-100",
+      "reason": "STALE_SOURCE",
+      "staging_id": 14
+    },
+    {
+      "country_code": "DE",
+      "parcel_ref": "P-200",
+      "reason": "CONFLICT_SAME_FRESHNESS",
+      "staging_id": 15
+    }
+  ],
+  "rules": {
+    "change_detection": "sha256(land_use, area_m2, normalised EWKB geom)",
+    "freshness": "update only if (source_date, source_rank) is strictly greater than core",
+    "geometry": "geom MultiPolygon EPSG:4326, must be valid; never repaired",
+    "natural_key": [
+      "country_code",
+      "parcel_ref"
+    ]
+  },
+  "run_id": 5,
+  "started_at": "2026-10-03T20:06:57.489062+00:00",
+  "tool_version": "0.1.0"
+}

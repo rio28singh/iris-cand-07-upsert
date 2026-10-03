@@ -1,0 +1,2 @@
+country_code,parcel_ref,source_date,srid,land_use,area_m2,geom_wkt
+DE,P-200,2024-06-01,4326,commercial,8000,"POLYGON((10.010 50.000,10.011 50.000,10.011 50.001,10.010 50.001,10.010 50.000))"
